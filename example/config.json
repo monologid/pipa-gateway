@@ -1,0 +1,72 @@
+{
+  "GET /users": {
+    "type": "proxy",
+    "service": 
+      {
+        "name": "users",
+        "url": "https://jsonplaceholder.typicode.com/users"
+      }
+  },
+  "GET /user/:id": {
+    "type": "proxy",
+    "middlewares":["Auth.ensureAuth"],
+    "service": 
+      {
+        "name": "user",
+        "url": "https://jsonplaceholder.typicode.com/users/:id"
+      }
+  },
+  "GET /parallel": {
+    "type": "parallel",
+    "services": [
+      {
+        "name": "user",
+        "url": "https://jsonplaceholder.typicode.com/users"
+      },
+      {
+        "name": "post",
+        "url": "https://jsonplaceholder.typicode.com/post"
+      }
+    ]
+  },
+  "GET /chain/:id": {
+    "type": "chain",
+    "services": [
+      {
+        "name": "user",
+        "url": "https://jsonplaceholder.typicode.com/users/:id"
+      },
+      {
+        "name": "post",
+        "url": "https://jsonplaceholder.typicode.com/posts?userId={user.id}",
+        "body":{
+          "userId":"{user.id}"
+        }
+      }
+    ]
+  },
+  "POST /posts": {
+    "type": "proxy",
+    "service": 
+      {
+        "name": "posts",
+        "url": "https://jsonplaceholder.typicode.com/posts"
+      }
+  },
+  "PUT /posts/:id": {
+    "type": "proxy",
+    "service": 
+      {
+        "name": "posts",
+        "url": "https://jsonplaceholder.typicode.com/posts/:id"
+      }
+  },
+  "DELETE /posts/:id": {
+    "type": "proxy",
+    "service": 
+      {
+        "name": "posts",
+        "url": "https://jsonplaceholder.typicode.com/posts/:id"
+      }
+  }
+}

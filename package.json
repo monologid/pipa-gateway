@@ -1,0 +1,28 @@
+{
+  "name": "pipa-gateway",
+  "version": "1.0.0",
+  "description": "A gateway or proxy  middleware extension for ExpressJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Septiyan Andika <septiyan.andika@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.5.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0"
+  },
+  "keywords": [
+    "pipa",
+    "express",
+    "api gateway",
+    "proxy",
+    "gateway",
+    "orchestrator",
+    "api",
+    "json",
+    "rest",
+    "restful"
+  ]
+}
