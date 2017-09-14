@@ -108,5 +108,6 @@ You can try to run the code example in `example` folder.
 [Apache-2.0](LICENSE)
 
 ### Contributors
-[Faris](faris@monolog.id)
-[Septiyan Andika](andika@monolog.id)
+[Faris](https://github.com/madebyais)
+
+[Septiyan Andika](https://github.com/septiyanandika)
