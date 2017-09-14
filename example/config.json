@@ -1,11 +1,11 @@
 {
   "domain":{
-    "placeholder":  "https://jsonplaceholder.typicode.com"
+    "placeholder": "https://jsonplaceholder.typicode.com"
   },
   "routes":{
     "GET /users": {
       "type": "proxy",
-      "service": 
+      "services":
         {
           "name": "users",
           "url": "${domain.placeholder}/users"
@@ -14,7 +14,7 @@
     "GET /user/:id": {
       "type": "proxy",
       "middlewares":["Auth.ensureAuth"],
-      "service": 
+      "services":
         {
           "name": "user",
           "url": "https://jsonplaceholder.typicode.com/users/:id"
@@ -29,7 +29,7 @@
         },
         {
           "name": "post",
-          "url": "https://jsonplaceholder.typicode.com/post"
+          "url": "https://jsonplaceholder.typicode.com/posts"
         }
       ]
     },
@@ -51,7 +51,7 @@
     },
     "POST /posts": {
       "type": "proxy",
-      "service": 
+      "services":
         {
           "name": "posts",
           "url": "https://jsonplaceholder.typicode.com/posts"
@@ -59,7 +59,7 @@
     },
     "PUT /posts/:id": {
       "type": "proxy",
-      "service": 
+      "services":
         {
           "name": "posts",
           "url": "https://jsonplaceholder.typicode.com/posts/:id"
@@ -67,7 +67,7 @@
     },
     "DELETE /posts/:id": {
       "type": "proxy",
-      "service": 
+      "services":
         {
           "name": "posts",
           "url": "https://jsonplaceholder.typicode.com/posts/:id"

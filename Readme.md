@@ -1,10 +1,10 @@
 # PIPA GATEWAY
 
->  PIPA GATEWAY A api gateway, proxy, or orchestrator  extension for ExpressJS.
+> A NodeJS module to help you create an API Gateway in an easy way.
 
-### Why PIPA
+### Why PIPA GATEWAY
 
-> The idea of PIPA GATEWAY is about how to create api gateway, proxy, or orchestrator  easy-way, readable in expressjs. PIPA GATEWAY  will forward your request body, headers, and query string to services. 
+> The concept of PIPA GATEWAY is similar to PipaJS, to enable developer to create an orchestrator or an API Gateway or a proxy in easy way.
 
 ### Installation
 
@@ -20,7 +20,7 @@ var PipaGateway = require('pipa-gateway');
 // @param   string      File json config
 // @param   string      Middleware folder
 
-var pipaGateway = new PipaGateway(app, 'config.json', 'middleware');
+var pipaGateway = new PipaGateway(app, { configPath: 'config.json', middlewarePath: 'middleware' });
 pipaGateway.open();
 
 app.listen(9000);
@@ -29,15 +29,15 @@ app.listen(9000);
 
 ### How-To
 
-There are 3 type process in pipa gateway, `proxy`, `parallel` and `chain`.
+There are 3 features in pipa gateway, `proxy`, `parallel` and `chain`.
 
 #### PROXY
-Proxy type will forward your request to services.
+`Proxy` will forward your request to services.
 ```json
 {
    "GET /users": {
     "type": "proxy",
-    "service": 
+    "service":
       {
         "name": "users",
         "url": "https://jsonplaceholder.typicode.com/users"
@@ -46,7 +46,7 @@ Proxy type will forward your request to services.
   "GET /user/:id": {
     "type": "proxy",
     "middlewares":["Auth.ensureAuth"],
-    "service": 
+    "service":
       {
         "name": "user",
         "url": "https://jsonplaceholder.typicode.com/users/:id"
@@ -56,7 +56,7 @@ Proxy type will forward your request to services.
 ```
 
 #### PARALLEL
-Parallel type will request pararel to multilple services.
+`Parallel` will request parallel to multilple services.
 ```json
 {
     "GET /parallel": {
@@ -68,7 +68,7 @@ Parallel type will request pararel to multilple services.
           },
           {
             "name": "post",
-            "url": "https://jsonplaceholder.typicode.com/post"
+            "url": "https://jsonplaceholder.typicode.com/posts"
           }
         ]
     }
@@ -76,7 +76,7 @@ Parallel type will request pararel to multilple services.
 ```
 
 #### Chain
-Chain type will request chain to multilple services, next request will process after previous request successfully, and can set parameter to next request from value previous request 
+`Chain` will request chain to multiple services, the next request will process after previous request successfully and can set parameter to the next request based on result on previous request.
 ```json
 {
    "GET /chain/:id": {
@@ -105,4 +105,8 @@ You can try to run the code example in `example` folder.
 
 ### License
 
-  [MIT](LICENSE) 
+[Apache-2.0](LICENSE)
+
+### Contributors
+[Faris](faris@monolog.id)
+[Septiyan Andika](andika@monolog.id)
