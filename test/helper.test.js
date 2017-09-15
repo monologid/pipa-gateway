@@ -1,4 +1,5 @@
-const assert = require("assert");
+const chai = require("chai");
+const assert = chai.assert;
 const helper = require("../lib/helper");
 
 describe("helper module", () => {
