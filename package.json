@@ -4,7 +4,7 @@
   "description": "A NodeJS module to help you create an API Gateway in an easy way.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha test/*.test.js --reporter spec"
   },
   "contributors": [
     "Faris <faris@monolog.id",
@@ -34,5 +34,9 @@
   },
   "bugs": {
     "url": "https://github.com/monologid/pipa-gateway/issues"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3"
   }
 }
