@@ -1,4 +1,4 @@
-# PIPA GATEWAY
+# PIPA GATEWAY  [![CodeCov][codecov-badge]][codecov-master-url]
 
 > A NodeJS module to help you create an API Gateway in an easy way.
 
