@@ -1,24 +1,22 @@
 {
-  "domain":{
+  "domain": {
     "placeholder": "https://jsonplaceholder.typicode.com"
   },
-  "routes":{
+  "routes": {
     "GET /users": {
       "type": "proxy",
-      "services":
-        {
-          "name": "users",
-          "url": "${domain.placeholder}/users"
-        }
+      "services": {
+        "name": "users",
+        "url": "${domain.placeholder}/users"
+      }
     },
     "GET /user/:id": {
       "type": "proxy",
-      "middlewares":["Auth.ensureAuth"],
-      "services":
-        {
-          "name": "user",
-          "url": "https://jsonplaceholder.typicode.com/users/:id"
-        }
+      "middlewares": ["Auth.ensureAuth"],
+      "services": {
+        "name": "user",
+        "url": "https://jsonplaceholder.typicode.com/users/:id"
+      }
     },
     "GET /parallel": {
       "type": "parallel",
@@ -42,36 +40,33 @@
         },
         {
           "name": "post",
-          "url": "https://jsonplaceholder.typicode.com/posts?userId={user.id}",
-          "body":{
-            "userId":"{user.id}"
+          "url": "https://jsonplaceholder.typicode.com/posts?userId1={user.id}",
+          "body": {
+            "userId": "{user.id}"
           }
         }
       ]
     },
     "POST /posts": {
       "type": "proxy",
-      "services":
-        {
-          "name": "posts",
-          "url": "https://jsonplaceholder.typicode.com/posts"
-        }
+      "services": {
+        "name": "posts",
+        "url": "https://jsonplaceholder.typicode.com/posts"
+      }
     },
     "PUT /posts/:id": {
       "type": "proxy",
-      "services":
-        {
-          "name": "posts",
-          "url": "https://jsonplaceholder.typicode.com/posts/:id"
-        }
+      "services": {
+        "name": "posts",
+        "url": "https://jsonplaceholder.typicode.com/posts/:id"
+      }
     },
     "DELETE /posts/:id": {
       "type": "proxy",
-      "services":
-        {
-          "name": "posts",
-          "url": "https://jsonplaceholder.typicode.com/posts/:id"
-        }
+      "services": {
+        "name": "posts",
+        "url": "https://jsonplaceholder.typicode.com/posts/:id"
+      }
     }
   }
 }

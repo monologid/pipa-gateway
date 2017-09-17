@@ -1,10 +1,12 @@
 {
   "name": "pipa-gateway",
   "version": "1.0.0",
-  "description": "A NodeJS module to help you create an API Gateway in an easy way.",
+  "description":
+    "A NodeJS module to help you create an API Gateway in an easy way.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test":
+      "./node_modules/nyc/bin/nyc.js ./node_modules/mocha/bin/mocha test/*.test.js --timeout=6000"
   },
   "contributors": [
     "Faris <faris@monolog.id",
@@ -34,5 +36,12 @@
   },
   "bugs": {
     "url": "https://github.com/monologid/pipa-gateway/issues"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "codecov": "^2.3.0",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1"
   }
 }
