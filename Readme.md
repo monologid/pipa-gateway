@@ -98,6 +98,26 @@ There are 3 features in pipa gateway, `proxy`, `parallel` and `chain`.
 }
 ```
 
+### Prefix URL
+If you need to add prefix, you can add `prefix` field in the configuration file. For example, this request from `http://example.com/my-prefix/users` will be proxied to `https://jsonplaceholder.typicode.com/users`
+```json
+{
+  "domain": {
+    "sample": "http://example.com"
+  },
+  "prefix": "/my-prefix",
+  "routes": {
+    "GET /users": {
+      "type": "proxy",
+      "service":
+        {
+          "name": "users",
+          "url": "https://jsonplaceholder.typicode.com/users"
+        }
+    }
+  }
+}
+```
 
 ### Code Example
 
