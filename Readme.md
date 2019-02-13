@@ -119,6 +119,20 @@ If you need to add prefix, you can add `prefix` field in the configuration file.
 }
 ```
 
+### Centralized `domain`
+If you want to centralize the `domain` location i.e. in environment variables or a separate file, you can add `domainObject` while instantiating new pipaGateway object. It's really useful if you have several server environments (DEV, STAGING, PROD) to deploy the app.
+
+Note it requires you to construct the domainObject from your preferred source first:
+
+```bash
+const domainObject = {
+  "sample": "http://example.com",
+  "testing": "http://testing.com"
+}  
+
+var pipaGateway = new PipaGateway(app, { configPath: 'config.json', middlewarePath: 'middleware', domainObject: domainObject });
+```
+
 ### Code Example
 
 You can try to run the code example in `example` folder.
