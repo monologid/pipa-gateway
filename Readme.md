@@ -118,6 +118,29 @@ If you need to add prefix, you can add `prefix` field in the configuration file.
   }
 }
 ```
+You can also put prefix in the environment variables. It really useful if you have multiple server environments (DEV, STAGING, PROD, etc.) and each enviroment have different prefix. To achive that, you have to add prefix in enviroment variable begin with `PIPA_GATEWAY_PREFIX_`. 
+Example:
+```bash
+PIPA_GATEWAY_PREFIX_EXAMPLE=/example
+```
+```json
+{
+  "domain": {
+    "sample": "http://example.com" 
+  },
+  "prefix": "${prefix.go_example}",
+  "routes": {
+    "GET /users": {
+      "type": "proxy",
+      "service":
+        {
+          "name": "users",
+          "url": "https://jsonplaceholder.typicode.com/users"
+        }
+    }
+  }
+}
+```
 
 ### Set `domain` from Enviroment Variables
 In a real world, you may need to have multiple server enviroments (DEV, STAGING, PROD, etc.)
