@@ -119,6 +119,24 @@ If you need to add prefix, you can add `prefix` field in the configuration file.
 }
 ```
 
+### Set `domain` from Enviroment Variables
+In a real world, you may need to have multiple server enviroments (DEV, STAGING, PROD, etc.)
+If we define the `domain` inside the `json file`, we can only have 1 enviroment.
+So, to cater the issue, you have to define the `domain` in the `enviroment variables` instead.
+
+Every environment variable which starts with `PIPA_GATEWAY_DOMAIN_` will be added to `domain` object. 
+
+Example of `.env` file:
+```bash
+const domainObject = {
+  "PIPA_GATEWAY_DOMAIN_SAMPLE": "http://example.com",
+  "PIPA_GATEWAY_DOMAIN_TESTING": "http://testing.com"
+}  
+```
+
+Note: if you defined `domain` both in the `json file` and `environment variables`, the one defined in `json file` will be replaced. 
+
+
 ### Code Example
 
 You can try to run the code example in `example` folder.
